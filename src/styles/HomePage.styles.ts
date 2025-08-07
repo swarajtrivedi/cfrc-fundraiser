@@ -8,13 +8,16 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
+  height: 120px;
+  max-height: 200px;
   flex-wrap: wrap;
   background-color: #0B1A3F;
   color: #FFFFFF;
-  padding: 0.5rem;
+  // padding: 1.5rem;
+  padding-left:1.5rem;
+  padding-right:1.5rem;
   text-align: center;
-  position: relative;
+  // position: relative;
 `;
 
 const Footer = styled.div`
@@ -22,33 +25,35 @@ const Footer = styled.div`
   
 `;
 
-const Header = styled.h1`
+const Header = styled.div`
   
-  font-size: 36px !important;
-  
+  font-size: 50px !important;
+  margin-right: 100px;
   font-family: Raleway;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  // margin-bottom: 0.5rem;
 
 `;
 
-const SubHeader = styled.h2`
-  font-size: 28px !important;
+const SubHeader = styled.div`
+  font-size: 35px !important;
   font-family: Raleway;
   font-weight: 600;
   color: #2EA8F2;
-  margin-bottom: 1rem;
+  
 
   @media (max-width: 600px) {
     font-size: 1.2rem;
   }
 `;
 
-const Description = styled.p`
-  font-size: 18px;
-  line-height: 1.5;
-  max-width: 800px;
-  margin: 0 auto 2rem auto;
+const Description = styled.div`
+  font-size: 1.5em;
+  color: #1800AD;
+  font-weight: 700;
+  line-height: 1.2;
+  // max-width: 800px;
+  // margin: 0 auto 2rem auto;
   padding: 0 1rem;
 
   @media (max-width: 600px) {
@@ -59,8 +64,9 @@ const Description = styled.p`
 const NavBar = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: #52bbed;
-  padding: 0.75rem;
+  // padding: 0.75rem;
   gap: 2rem;
   flex-wrap: wrap;
 `;
@@ -90,7 +96,7 @@ const HeaderBar = styled.div`
 const DonateButton = styled.button`
   background-color: orange;
   color: white;
-  font-size: 15px;
+  font-size: 2vw;
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 25px;
@@ -101,6 +107,19 @@ const DonateButton = styled.button`
     background-color: #e69500;
   }
 `;
+
+const ConferenceCard = styled.div`
+  background-color: #52bbed;
+  display: flex;
+  align-items: center;
+  color: #FFFFFF;
+  font-weight:700;
+  font-size:20px;
+  padding: 0.5em;
+  border-radius: 8px;
+
+
+`
 
 const Logo = styled.div`
   font-size: 1.25rem;
@@ -180,10 +199,12 @@ const ImageRow = styled.div`
 `;
 
 const Image = styled.img`
-  width: 250px;
-  max-width: 90%;
+  width: 20vw;
+  height:18vh;
+  // max-width: 90%;
   border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  border: black solid;
 `;
 
 const BlueBox = styled.div`
@@ -207,14 +228,15 @@ const WhiteContainer = styled.div`
 const FlexRow = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
   gap: 2rem;
+  height: fit-content;
   // margin: 2rem auto;
   margin-left: 2rem;
-  margin-top: 1rem;
+  // margin-top: 1rem;
   max-width: 90vw;
-  padding: 0 1rem;
+  // padding: 0 1rem;
 `;
 
 const FlexColumnText = styled.div`
@@ -223,11 +245,10 @@ const FlexColumnText = styled.div`
 `;
 
 const FlexColumnImages = styled.div`
-  flex: 1 1 35%;
   display: flex;
-  flex-direction: column;
   gap: 1rem;
-  align-items: center;
+  align-items: top;
+  
 `;
 
 const TitleLeft = styled.h2`
@@ -275,6 +296,66 @@ const RightColumn = styled.div`
   min-width: 200px;
 `;
 
+
+const CenteredText = styled.p`
+  text-align: center;
+  color: #2200a5;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 1rem auto;
+  max-width: 80%;
+`;
+
+const ImageGridRow = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+`;
+
+const ImageWithCaption = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 200px;
+
+  img {
+    width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+  }
+
+  span {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #1784d4;
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+`;
+
+const PurpleParagraph = styled.p`
+  color: #5e1584;
+  text-align: center;
+  max-width: 90%;
+  margin: 1rem auto;
+  font-weight: 600;
+  font-size: 1rem;
+`;
+
+const BlueHighlightBar = styled.div`
+  background-color: #339cf7;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 1rem;
+  margin: 2rem auto 1rem auto;
+  max-width: 800px;
+  border-radius: 6px;
+`;
+
 export {
     WhiteContainer,
     Container,
@@ -305,5 +386,13 @@ export {
     ContentRow,
     LeftColumn,
     RightColumn,
-    Footer
+    Footer,
+    CenteredText,
+    ImageGridRow,
+    ImageWithCaption,
+    PurpleParagraph,
+    BlueHighlightBar,
+    ConferenceCard
+
+
 };
