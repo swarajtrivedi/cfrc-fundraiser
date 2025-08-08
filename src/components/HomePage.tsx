@@ -1,202 +1,214 @@
 import React, { useState } from "react";
-import {
-    WhiteContainer,
-    Container,
-    Header,
-    SubHeader,
-    Description,
-    NavBar,
-    NavLink,
-    HeaderBar,
-    DonateButton,
-    Logo,
-    Title,
-    Paragraph,
-    List,
-    ListItem,
-    Highlight,
-    RegisterButton,
-    ImageRow,
-    Image,
-    BlueBox,
-    FlexRow,
-    FlexColumnText,
-    FlexColumnImages,
-    TitleLeft,
-    ParagraphLeft,
-    ListLeft,
-    Footer,
-    ContentRow,
-    LeftColumn,
-    RightColumn,
-    ConferenceCard
-} from "../styles/HomePage.styles";
-import image1 from "../images/image1.png";
-import image2 from "../images/image2.png"
-import image3 from "../images/image3.png"
-import image4 from "../images/image4.png"
-import image5 from "../images/image5.png"
-import image6 from "../images/image6.png"
-import image7 from "../images/image7.png"
-import image8 from "../images/image8.png"
-import image9 from "../images/image9.png"
+import styled from "styled-components";
+import smear from "../images/image1.png";
+import lab from "../images/image2.png";
+import htlv from "../images/image5.png";
+import skin from "../images/image9.png";
+import logo from "../images/image10.png";
 
-const HomePage = () => {
-  const [activePage, setActivePage] = useState("Home");
+const STRIPE_LINK = "https://buy.stripe.com/4gM9AT2NI3LK0Nq5PQgMw00";
 
-  const handleDonateClick = () => {
-    window.location.href = "https://buy.stripe.com/4gM9AT2NI3LK0Nq5PQgMw00";
-  };
+const Page = styled.div`
+  font-family: Raleway;
+  background: white;
+  text-align: center;
+  overflow: hidden;
+`;
 
-  const handleRegisterClick = () => {
-    window.location.href = "https://medivents.eventsair.com/htlv-conference-2026/htlv26/Site/Register";
-  };
+const Header = styled.div`
+  background-color: #0d2c6b;
+  color: white;
+  padding: 10px 20px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  position: relative;
+`;
+
+const Logo = styled.img`
+  width: 90px;
+  height: auto;
+`;
+
+const HeaderTextContainer = styled.div`
+  text-align: center;
+`;
+
+const Title = styled.h1`
+  margin: 0;
+  font-size: 2.5rem;
+`;
+
+const SubTitle = styled.h2`
+  color: #55a4e9;
+  font-size: 2rem;
+  margin: 0;
+`;
+
+const Nav = styled.nav`
+  background-color: #52c1f0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 10px;
+  font-weight: bold;
+`;
+
+const NavItem = styled.span<{ active?: boolean }>`
+  color: ${({ active }) => (active ? "#142457" : "white")};
+  cursor: pointer;
+  font-size: 1.2rem;
+`;
+
+const Section = styled.div`
+  padding: 15px 5vw;
+`;
+
+const Paragraph = styled.p`
+  color: #5c1a73;
+  font-weight: bold;
+  margin: 6px 0;
+  font-size: 1.5rem;
+`;
+
+const WhiteParagraph = styled(Paragraph)`
+  color: white;
+`;
+
+const Emphasis = styled.span`
+  color: #b30059;
+  font-weight: bold;
+`;
+
+const ImageGallery = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 15px 0;
+`;
+
+const ImageBox = styled.div`
+  width: 240px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #2f95d8;
+`;
+
+const Image = styled.img`
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+`;
+
+const FooterBox = styled.div`
+  background-color: #52c1f0;
+  padding: 10px;
+  margin: 10px auto;
+  max-width: 700px;
+  border-radius: 10px;
+`;
+
+const CTAButton = styled.button`
+  background-color: #f8981d;
+  color: white;
+  font-weight: bold;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: #ffa733;
+  }
+`;
+
+const DonateButton = styled.a`
+  background-color: #ffa733;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 25px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-decoration: none;
+`;
+
+const App = () => {
+  const [activeTab, setActiveTab] = useState("Home");
 
   return (
-    <>
-      <Container> 
-          <Logo>
-            CFRC <br /> Cure for Rare Cancer
-          </Logo>
-          <Header>
-            Your help can change lives
-            <SubHeader>
-              CFRC - Cure For A Rare Cancer
-            </SubHeader>
-            
-          </Header>
-          <DonateButton onClick={handleDonateClick}>Donate</DonateButton>
-        
-      </Container>
-
-      <NavBar>
-        <NavLink active={activePage === "Home"} onClick={() => setActivePage("Home")} href="#">
-          Home
-        </NavLink>
-        <NavLink active={activePage === "Learn More"} onClick={() => setActivePage("Learn More")} href="#">
-          Learn More
-        </NavLink>
-        <NavLink active={activePage === "Contact Us"} onClick={() => setActivePage("Contact Us")} href="#">
-          Contact Us
-        </NavLink>
-      </NavBar>
-
-      <WhiteContainer>
-        <FlexRow style={{height:"150px"}}>
-            <Description>
-              CFRC is a campaign for the rare form of blood cancer linked with a tumor virus,
-              human T lymphotropic virus I <br/>(HTLV-1), which is a close cousin of HIV. <br />
-              Major themes are to disseminate knowledge, spread awareness, engage patients,
-              communities, and support research for an aggressive form of Non-Hodgkin’s lymphoma,
-              ATLL (Adult T-cell Leukemia/Lymphoma).
-            </Description>
-        </FlexRow>
-        <FlexRow>
-          <FlexColumnImages>
-            <div>
-              <Image src={image1} alt="HTLV conference" />
-              <p style={{fontSize:"20px",color:"#52bbed", fontWeight:700, margin:"unset"}}>ATLL Blood Smear</p>
-            </div>
-            <Image src={image2} alt="HTLV presentation" />
-            <Image src={image5} alt="HTLV presentation" />
-            <div>
-              <Image src={image9} alt="HTLV conference" />
-              <p style={{fontSize:"20px", color:"#52bbed", fontWeight:700, margin:"unset"}}>Skin involvement is common <br/>and often painful</p>
-            </div>
-          </FlexColumnImages>
-        </FlexRow>
-
-        <FlexRow>
-          <Description style={{fontSize: "21px", color: "#7D3382"}}>
-          About 20 million people infected worldwide with a recent epidemic in Australian aboriginals' communities. 
-          There is a dire need of help since there in no vaccine, or cure. More research is needed for better treatments. 
-          Your support will help fund innovative therapeutic research & participation of attendees in the international conference who otherwise can not attend, including from underserved people.
-          </Description>
-          <ConferenceCard>
-          HTLV2026 ( htlv2026.org) <br/>
-
-          The 22nd International Conference on Human Retrovirology: HTLV and related viruses <br/>
-
-          June 3rd – 6th, 2026 in Philadelphia, PA, USA 
-            
-          </ConferenceCard>
-        </FlexRow>
-        <DonateButton onClick={handleDonateClick}>Start Giving Today</DonateButton>
-        
-      </WhiteContainer>
-
-        {/* <ImageRow>
-          <Image src={image3} alt="HTLV conference" />
-          <Image src={image4} alt="HTLV presentation" />
-          <Image src={image8} alt="HTLV presentation" />
-        </ImageRow>
-
-
-
-        <FlexRow>
-          <FlexColumnText>
-            <Paragraph style={{ fontStyle: "italic", textAlign: "left" }}>
-              “HTLV affects millions of people globally, yet remains largely unknown to the public and underrepresented in medical and research arenas. By bringing together patients, caregivers, and researchers from around the world, particularly those from regions where HTLV is endemic, we can foster collaboration, share critical knowledge, and accelerate progress toward prevention and treatment options.”
-            </Paragraph>
-
-            <Paragraph style={{ textAlign: "left", fontSize: "16px !important" }}>
-              <p style={{ color: "#2EA8F2", fontWeight: "bold", textAlign: "left" }}>- Professor Pooja Jain, Ph.D</p>
-              Professor, Departments of Microbiology and Immunology, Drexel University College of Medicine <br />
-              Chair of the 22nd International Conference on Human Retrovirology (HTLV2026.org) <br />
-              Secretary of the International Retrovirology Association (IRVA)<br/>
-              Dr. Jain, who is also a member of the Sydney Kimmel Comprehensive Cancer Center and serves on the Advisory Board of the Childhood Leukemia and Lymphoma Foundation (CLLF), has dedicated her career to studying retroviruses and their impact on human health.
-            </Paragraph>
-          </FlexColumnText>
-
-          <FlexColumnImages>
-            <Image src={image5} alt="HTLV vs HIV image" />
-            <DonateButton onClick={handleDonateClick} style={{ marginTop: "1rem" }}>
-              Donate
-            </DonateButton>
-          </FlexColumnImages>
-        </FlexRow>
-
-        <ImageRow>
-          <Image src={image6} alt="HTLV conference" />
-          <Image src={image7} alt="HTLV presentation" />
-        </ImageRow>
-        <Paragraph>The last conference (HTLV 2024) held in Imperial College London was a great success and paved way for another productive meeting in USA 23 years after HTLV2003 was held in San Francisco, USA </Paragraph>
-        
-        <Title>HTLV2026</Title>
-        <SubHeader>The 22nd Biennial International Conference on Human Retrovirology: HTLV and related viruses</SubHeader>
-        <Paragraph>June 3rd - 6th, 2026 | Philadelphia, Pennsylvania, USA</Paragraph>
-
-        <RegisterButton onClick={handleRegisterClick}>Register</RegisterButton>
-
-        <SubHeader>
-          HTLV2026 will cover some of the most important advances in discovery research, molecular and immunological pathogenesis, pre-clinical models, epidemiology, diagnostics, prevention, vaccinology, and therapeutics.
-        </SubHeader>
-        <Paragraph>
-          The USA was strategically chosen to draw worldwide attention to this underrecognized virus.
+    <Page>
+      <Header>
+        <Logo src={logo} alt="CFRC Logo" />
+        <HeaderTextContainer>
+          <Title>Your help can change lives</Title>
+          <SubTitle>CFRC - Cure For A Rare Cancer</SubTitle>
+        </HeaderTextContainer>
+        <DonateButton
+          href={STRIPE_LINK}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Donate
+        </DonateButton>
+      </Header>
+      <Nav>
+        {["Home", "Learn More", "Contact Us"].map((tab) => (
+          <NavItem
+            key={tab}
+            active={tab === activeTab}
+            onClick={() => setActiveTab(tab)}
+          >
+            {tab}
+          </NavItem>
+        ))}
+      </Nav>
+      <Section>
+        <Paragraph style={{ color: "#000080" }}>
+          CFRC is a campaign for the rare form of blood cancer linked with a tumor virus, human T lymphotropic virus I (HTLV-1), which is a close cousin of HIV. 
+          Major themes are to disseminate knowledge, spread awareness, engage patients, communities, and support research for an aggressive form of Non-Hodgkin’s lymphoma, ATLL (Adult T-cell Leukemia/Lymphoma).
         </Paragraph>
 
+        <ImageGallery>
+          <ImageBox>
+            <Image src={smear} alt="ATLL Blood Smear" />
+            ATLL Blood Smear
+          </ImageBox>
+          <ImageBox>
+            <Image src={lab} alt="Lab" />
+          </ImageBox>
+          <ImageBox>
+            <Image src={htlv} alt="HTLV vs HIV" />
+          </ImageBox>
+          <ImageBox>
+            <Image src={skin} alt="Skin involvement" />
+            Skin involvement is common<br />and often painful
+          </ImageBox>
+        </ImageGallery>
+
         <Paragraph>
-          Enable participation in HTLV2026 International Conference from Underserved Regions as well as advance Critical Research for a Rare Form of Cancer
+          About 20 million people infected worldwide with a recent epidemic in Australian aboriginals' communities. There is a dire need of help since there is no vaccine, or cure. More research is needed for better treatments. Your support will help fund innovative therapeutic research & participation of attendees in the international conference who otherwise can not attend, including from underserved people.
         </Paragraph>
 
-        <DonateButton onClick={handleDonateClick}>Donate Now</DonateButton>
-        
-        <Paragraph>
-          <SubHeader>
-            World HTLV Day is recognized annually on November 10th, providing an opportunity to spotlight the ongoing challenges faced by those affected by the virus.
-          </SubHeader>
-        </Paragraph>
+        <FooterBox>
+          <WhiteParagraph>
+            <strong>HTLV2026</strong> ( htlv2026.org )<br />
+            The 22nd International Conference on Human Retrovirology: HTLV and related viruses<br />
+            June 3rd – 6th, 2026 in Philadelphia, PA, USA
+          </WhiteParagraph>
+        </FooterBox>
 
-      </WhiteContainer>
-        <Container>
-          <Footer>About HTLV & ATLL:</Footer>
-          
-          <Description>
-            Human T-cell Leukemia Virus (HTLV) is a retrovirus that can cause serious conditions including adult T-cell leukemia/lymphoma (ATLL) and HTLV-1-associated myelopathy/tropical spastic paraparesis (HAM/TSP), a debilitating neurological disease. ATLL is one of the most aggressive forms of non-Hodgkin lymphoma that can be found in the blood as leukemia, lymph nodes as lymphoma, bone, skin, and other areas of the body. It can be presented as Acute Lymphomatous, Chronic and Smoldering with a median survival of 6 months to 2 years. Treatment remains elusive and there is no vaccine or cure for this disease.
-          </Description>
-        </Container> */}
-    </>
+        <CTAButton
+          onClick={() => window.open(STRIPE_LINK, "_blank", "noopener,noreferrer")}
+        >
+          Start Giving Today
+        </CTAButton>
+      </Section>
+    </Page>
   );
 };
 
-export default HomePage;
+export default App;
