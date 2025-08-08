@@ -140,6 +140,13 @@ const DonateButton = styled.a`
   text-decoration: none;
 `;
 
+const ButtonRow = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+`;
+
 const InfoSection = styled.div`
   padding: 0px 5vw;
 `;
@@ -169,18 +176,20 @@ const InfoImage = styled.img`
 const FinalFooter = styled.div`
   background-color: #0d2c6b;
   color: white;
-  padding: 2px 5vw;
-`;
-
-const FinalFooterHeading = styled.h3`
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-`;
-
-const FinalFooterText = styled.p`
-  font-size: 1.3rem;
+  padding: 20px 5vw;
   font-style: italic;
+`;
+
+const FooterHeading = styled.p`
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.5rem;
   margin: 0;
+`;
+
+const FooterText = styled.p`
+  font-size: 1.4rem;
+  margin-top: 10px;
 `;
 
 const App = () => {
@@ -245,11 +254,20 @@ const App = () => {
           </WhiteParagraph>
         </FooterBox>
 
-        <CTAButton
-          onClick={() => window.open(STRIPE_LINK, "_blank", "noopener,noreferrer")}
-        >
-          Start Giving Today
-        </CTAButton>
+        <ButtonRow>
+          <CTAButton
+            onClick={() =>
+              window.open("https://medivents.eventsair.com/htlv-conference-2026/htlv26/Site/Register", "_blank", "noopener,noreferrer")
+            }
+          >
+            Register
+          </CTAButton>
+          <CTAButton
+            onClick={() => window.open(STRIPE_LINK, "_blank", "noopener,noreferrer")}
+          >
+            Donate
+          </CTAButton>
+        </ButtonRow>
       </Section>
 
       <InfoSection>
@@ -279,10 +297,11 @@ const App = () => {
       </InfoSection>
 
       <FinalFooter>
-        <FinalFooterHeading>About HTLV & ATLL</FinalFooterHeading>
-        <FinalFooterText>
-          Human T-cell Leukemia Virus (HTLV) is a retrovirus that can cause serious conditions including adult T-cell leukemia/lymphoma (ATLL) and HTLV-1-associated myelopathy/tropical spastic paraparesis (HAM/TSP), a debilitating neurological disease. ATLL is one of the most aggressive forms of non hodgkin lymphoma that can be found in the blood as leukemia, lymph nodes as lymphoma, bone, skin, and other areas of the body. It can be presented as Acute Lymphomatous, Chronic and Smoldering with a median survival of 6 months to 2 years. Treatment remains elusive and there is no vaccine or cure for this disease.
-        </FinalFooterText>
+        <FooterHeading>About HTLV & ATLL</FooterHeading>
+        <FooterText>
+          Human T-cell Leukemia Virus (HTLV) is a retrovirus that can cause serious conditions including adult T-cell leukemia/lymphoma (ATLL) and HTLV-1-associated myelopathy/tropical spastic paraparesis (HAM/TSP), a debilitating neurological disease.
+          ATLL is one of the most aggressive forms of non hodgkin lymphoma that can be found in the blood as leukemia, lymph nodes as lymphoma, bone, skin, and other areas of the body. It can be presented as Acute Lymphomatous, Chronic and Smoldering with a median survival of 6 months to 2 years. Treatment remains elusive and there is no vaccine or cure for this disease.
+        </FooterText>
       </FinalFooter>
     </Page>
   );
