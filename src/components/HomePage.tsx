@@ -5,6 +5,10 @@ import lab from "../images/image2.png";
 import htlv from "../images/image5.png";
 import skin from "../images/image9.png";
 import logo from "../images/image10.png";
+import conference from "../images/image3.png";
+import presentation from "../images/image4.png";
+import groupPicture from "../images/image6.png";
+import meetingPicture from "../images/image7.png";
 
 const STRIPE_LINK = "https://buy.stripe.com/4gM9AT2NI3LK0Nq5PQgMw00";
 
@@ -89,7 +93,7 @@ const ImageGallery = styled.div`
 `;
 
 const ImageBox = styled.div`
-  width: 240px;
+  width: 280px;
   font-size: 0.8rem;
   font-weight: bold;
   color: #2f95d8;
@@ -97,7 +101,7 @@ const ImageBox = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  height: 120px;
+  height: 140px;
   object-fit: cover;
   border-radius: 8px;
 `;
@@ -136,6 +140,49 @@ const DonateButton = styled.a`
   text-decoration: none;
 `;
 
+const InfoSection = styled.div`
+  padding: 0px 5vw;
+`;
+
+const InfoParagraph = styled.p<{ purple?: boolean }>`
+  font-size: 1.5rem;
+  color: ${({ purple }) => (purple ? "#80267e" : "#0d2c6b")};
+  font-weight: bold;
+  margin: 12px 0;
+`;
+
+const ImageRow = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+`;
+
+const InfoImage = styled.img`
+  width: 240px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+`;
+
+const FinalFooter = styled.div`
+  background-color: #0d2c6b;
+  color: white;
+  padding: 2px 5vw;
+`;
+
+const FinalFooterHeading = styled.h3`
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+`;
+
+const FinalFooterText = styled.p`
+  font-size: 1.3rem;
+  font-style: italic;
+  margin: 0;
+`;
+
 const App = () => {
   const [activeTab, setActiveTab] = useState("Home");
 
@@ -147,14 +194,11 @@ const App = () => {
           <Title>Your help can change lives</Title>
           <SubTitle>CFRC - Cure For A Rare Cancer</SubTitle>
         </HeaderTextContainer>
-        <DonateButton
-          href={STRIPE_LINK}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <DonateButton href={STRIPE_LINK} target="_blank" rel="noopener noreferrer">
           Donate
         </DonateButton>
       </Header>
+
       <Nav>
         {["Home", "Learn More", "Contact Us"].map((tab) => (
           <NavItem
@@ -166,10 +210,10 @@ const App = () => {
           </NavItem>
         ))}
       </Nav>
+
       <Section>
         <Paragraph style={{ color: "#000080" }}>
-          CFRC is a campaign for the rare form of blood cancer linked with a tumor virus, human T lymphotropic virus I (HTLV-1), which is a close cousin of HIV. 
-          Major themes are to disseminate knowledge, spread awareness, engage patients, communities, and support research for an aggressive form of Non-Hodgkin’s lymphoma, ATLL (Adult T-cell Leukemia/Lymphoma).
+          CFRC is a campaign for the rare form of blood cancer linked with a tumor virus, human T lymphotropic virus I (HTLV-1), which is a close cousin of HIV. Major themes are to disseminate knowledge, spread awareness, engage patients, communities, and support research for an aggressive form of Non-Hodgkin’s lymphoma, ATLL (Adult T-cell Leukemia/Lymphoma).
         </Paragraph>
 
         <ImageGallery>
@@ -207,6 +251,39 @@ const App = () => {
           Start Giving Today
         </CTAButton>
       </Section>
+
+      <InfoSection>
+        <InfoParagraph>
+          <strong>The last conference (HTLV 2024)</strong> held in Imperial College London was a great success and paved way for another productive meeting in USA 23 years after HTLV2003 was held in San Francisco, USA
+        </InfoParagraph>
+
+        <InfoParagraph purple>
+          <strong>HTLV2026</strong> will cover some of the most important advances in discovery research, molecular and immunological pathogenesis, pre-clinical models, epidemiology, diagnostics, prevention, vaccinology, and therapeutics.<br />
+          The USA was strategically chosen to draw worldwide attention to this underrecognized virus.
+        </InfoParagraph>
+
+        <ImageRow>
+          <InfoImage src={presentation} alt="HTLV2026 venue" />
+          <InfoImage src={groupPicture} alt="Group photo" />
+          <InfoImage src={conference} alt="Conference picture" />
+          <InfoImage src={meetingPicture} alt="Meeting room" />
+        </ImageRow>
+
+        <InfoParagraph>
+          International interest in HTLVs has increased significantly in the last 6 years starting with the open letter to the WHO, the WHO Tokyo workshop (2019) and reports (2021), the call for action to prevent HTLV-1 mother-to-child transmission (PAHO) and the initiation of universal HTLV-1 antenatal screening in Brazil (2024)
+        </InfoParagraph>
+
+        <InfoParagraph purple>
+          <strong>World HTLV Day</strong> is recognized annually on November 10th, providing an opportunity to spotlight the ongoing challenges faced by those affected by the virus.
+        </InfoParagraph>
+      </InfoSection>
+
+      <FinalFooter>
+        <FinalFooterHeading>About HTLV & ATLL</FinalFooterHeading>
+        <FinalFooterText>
+          Human T-cell Leukemia Virus (HTLV) is a retrovirus that can cause serious conditions including adult T-cell leukemia/lymphoma (ATLL) and HTLV-1-associated myelopathy/tropical spastic paraparesis (HAM/TSP), a debilitating neurological disease. ATLL is one of the most aggressive forms of non hodgkin lymphoma that can be found in the blood as leukemia, lymph nodes as lymphoma, bone, skin, and other areas of the body. It can be presented as Acute Lymphomatous, Chronic and Smoldering with a median survival of 6 months to 2 years. Treatment remains elusive and there is no vaccine or cure for this disease.
+        </FinalFooterText>
+      </FinalFooter>
     </Page>
   );
 };
