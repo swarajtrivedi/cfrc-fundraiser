@@ -247,11 +247,20 @@ const App = () => {
         </Paragraph>
 
         <FooterBox>
-          <WhiteParagraph>
-            <strong>HTLV2026</strong> ( htlv2026.org )<br />
-            The 22nd International Conference on Human Retrovirology: HTLV and related viruses<br />
-            June 3rd – 6th, 2026 in Philadelphia, PA, USA
-          </WhiteParagraph>
+        <WhiteParagraph>
+          <strong>HTLV2026</strong> (
+          <a
+            href="https://htlv2026.org"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "white", textDecoration: "underline" }}
+          >
+            htlv2026.org
+          </a>
+          )<br />
+          The 22nd International Conference on Human Retrovirology: HTLV and related viruses<br />
+          June 3rd – 6th, 2026 in Philadelphia, PA, USA
+        </WhiteParagraph>
         </FooterBox>
 
         <ButtonRow>
