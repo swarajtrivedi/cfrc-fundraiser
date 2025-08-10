@@ -4,11 +4,15 @@ import smear from "../images/image1.png";
 import lab from "../images/image2.png";
 import htlv from "../images/image5.png";
 import skin from "../images/image9.png";
-import logo from "../images/image10.png";
 import conference from "../images/image3.png";
 import presentation from "../images/image4.png";
 import groupPicture from "../images/image6.png";
 import meetingPicture from "../images/image7.png";
+import { BookIcon } from "../icons/BookIcon";
+import { UsersIcon } from "../icons/UsersIcon";
+import { HomeIcon } from "../icons/HomeIcon";
+import { HeartIcon } from "../icons/HeartIcon";
+import { HeaderSection } from "./sections/HeaderSection/HeaderSection";
 
 const STRIPE_LINK = "https://buy.stripe.com/4gM9AT2NI3LK0Nq5PQgMw00";
 
@@ -17,51 +21,6 @@ const Page = styled.div`
   background: white;
   text-align: center;
   overflow: hidden;
-`;
-
-const Header = styled.div`
-  background-color: #0d2c6b;
-  color: white;
-  padding: 10px 20px;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  position: relative;
-`;
-
-const Logo = styled.img`
-  width: 90px;
-  height: auto;
-`;
-
-const HeaderTextContainer = styled.div`
-  text-align: center;
-`;
-
-const Title = styled.h1`
-  margin: 0;
-  font-size: 2.5rem;
-`;
-
-const SubTitle = styled.h2`
-  color: #55a4e9;
-  font-size: 2rem;
-  margin: 0;
-`;
-
-const Nav = styled.nav`
-  background-color: #52c1f0;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  padding: 10px;
-  font-weight: bold;
-`;
-
-const NavItem = styled.span<{ active?: boolean }>`
-  color: ${({ active }) => (active ? "#142457" : "white")};
-  cursor: pointer;
-  font-size: 1.2rem;
 `;
 
 const Section = styled.div`
@@ -418,7 +377,6 @@ const FooterText = styled.p`
 `;
 
 const App = () => {
-  const [activeTab, setActiveTab] = useState("Home");
   const presetAmounts = [25, 50, 100, 250, 500];
   const [amount, setAmount] = useState<number>(50);
   const [customAmount, setCustomAmount] = useState<string>("");
@@ -490,28 +448,8 @@ const App = () => {
 
   return (
     <Page>
-      <Header>
-        <Logo src={logo} alt="CFRC Logo" />
-        <HeaderTextContainer>
-          <Title>Your help can change lives</Title>
-          <SubTitle>CFRC - Cure For A Rare Cancer</SubTitle>
-        </HeaderTextContainer>
-        <DonateButton onClick={scrollToDonateSection}>
-          Donate
-        </DonateButton>
-      </Header>
 
-      <Nav>
-        {["Home", "Learn More", "Contact Us"].map((tab) => (
-          <NavItem
-            key={tab}
-            active={tab === activeTab}
-            onClick={() => setActiveTab(tab)}
-          >
-            {tab}
-          </NavItem>
-        ))}
-      </Nav>
+      <HeaderSection scrollToDonateSection={scrollToDonateSection}/>
 
       <Section>
         <Paragraph style={{ color: "#000080" }}>
@@ -793,12 +731,7 @@ const App = () => {
             <DiffList>
               <DiffItem>
                 <DiffIcon bg="#eaf2ff">
-                  {/* book icon */}
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                    <path d="M4 19a3 3 0 0 1 3-3h13" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round"/>
-                    <path d="M7 4h10a3 3 0 0 1 3 3v12" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round"/>
-                    <path d="M7 4a3 3 0 0 0-3 3v12" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round"/>
-                  </svg>
+                  <BookIcon />
                 </DiffIcon>
                 <div>
                   <DiffAmount>$25</DiffAmount>
@@ -808,13 +741,7 @@ const App = () => {
 
               <DiffItem>
                 <DiffIcon bg="#eafaf1">
-                  {/* users icon */}
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                    <path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" stroke="#10b981" strokeWidth="2" strokeLinecap="round"/>
-                    <circle cx="9" cy="7" r="3" stroke="#10b981" strokeWidth="2"/>
-                    <path d="M22 21v-2a4 4 0 0 0-3-3.87" stroke="#10b981" strokeWidth="2" strokeLinecap="round"/>
-                    <path d="M16 3.13a3 3 0 0 1 0 5.75" stroke="#10b981" strokeWidth="2" strokeLinecap="round"/>
-                  </svg>
+                  <UsersIcon />
                 </DiffIcon>
                 <div>
                   <DiffAmount>$50</DiffAmount>
@@ -824,11 +751,7 @@ const App = () => {
 
               <DiffItem>
                 <DiffIcon bg="#f5efff">
-                  {/* home icon */}
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                    <path d="M3 10.5 12 3l9 7.5" stroke="#8b5cf6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M5 10v9a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-9" stroke="#8b5cf6" strokeWidth="2" strokeLinecap="round"/>
-                  </svg>
+                  <HomeIcon />
                 </DiffIcon>
                 <div>
                   <DiffAmount>$100</DiffAmount>
@@ -838,10 +761,7 @@ const App = () => {
 
               <DiffItem>
                 <DiffIcon bg="#ffeef0">
-                  {/* heart icon */}
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z" stroke="#ef4444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+                  <HeartIcon />
                 </DiffIcon>
                 <div>
                   <DiffAmount>$250</DiffAmount>
