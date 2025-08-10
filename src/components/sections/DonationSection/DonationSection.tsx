@@ -90,19 +90,55 @@ export const DonationSection = (props: IDonationSection) =>{
     return Object.keys(e).length === 0;
   };
 
-  const handleDonate = () => {
+
+  const handleDonate = async () => {
+    // run your existing validation first
     if (!validate()) return;
-    console.log("Donation form valid:", {
-      amount: displayAmount,
-      first,
-      last,
-      email,
-      phone,
-      country,
-      hear,
-      payment,
-    });
-    alert("Thanks! Your form looks good. (Payment hookup coming next.)");
+  
+    const amt = displayAmount;
+    if (!amt || amt < 25) {
+      setErrors((prev) => ({ ...prev, amount: "Minimum donation is $25." }));
+      return;
+    }
+  
+    try {
+      const amountInCents = Math.round(Number(amt) * 100);
+      // Comenting for local testing
+      // const BACKEND_URL = "https://YOUR-BACKEND-URL.onrender.com";
+      const BACKEND_URL = "http://localhost:8080";
+      const res = await fetch(`${BACKEND_URL}/create-checkout-session`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          amount: amountInCents,
+          currency: "usd",
+          metadata: {
+            first,
+            last,
+            email,
+            phone,
+            country,
+            hear,
+            source: "cfrc-fundraiser"
+          }
+        }),
+      });
+  
+      if (!res.ok) {
+        const errText = await res.text();
+        throw new Error(errText || "Failed to create checkout session");
+      }
+  
+      const data = await res.json();
+      if (data?.url) {
+        window.location.href = data.url;
+      } else {
+        throw new Error("Checkout URL not returned from server.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Sorry, we couldn't start the checkout. Please try again.");
+    }
   };
 
     return (
