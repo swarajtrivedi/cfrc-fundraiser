@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import smear from "../images/image1.png";
 import lab from "../images/image2.png";
@@ -125,7 +125,7 @@ const CTAButton = styled.button`
   }
 `;
 
-const DonateButton = styled.a`
+const DonateButton = styled.button`
   background-color: #ffa733;
   color: white;
   padding: 12px 28px;
@@ -133,6 +133,7 @@ const DonateButton = styled.a`
   font-size: 1.4rem;
   font-weight: bold;
   text-decoration: none;
+  cursor: pointer;
 `;
 
 const ButtonRow = styled.div`
@@ -481,6 +482,12 @@ const App = () => {
     alert("Thanks! Your form looks good. (Payment hookup coming next.)");
   };
 
+  const donateSectionRef = useRef<HTMLDivElement>(null);
+
+  const scrollToDonateSection = () => {
+    donateSectionRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <Page>
       <Header>
@@ -489,7 +496,7 @@ const App = () => {
           <Title>Your help can change lives</Title>
           <SubTitle>CFRC - Cure For A Rare Cancer</SubTitle>
         </HeaderTextContainer>
-        <DonateButton href={STRIPE_LINK} target="_blank" rel="noopener noreferrer">
+        <DonateButton onClick={scrollToDonateSection}>
           Donate
         </DonateButton>
       </Header>
@@ -561,9 +568,7 @@ const App = () => {
           >
             Register
           </CTAButton>
-          <CTAButton
-            onClick={() => window.open(STRIPE_LINK, "_blank", "noopener,noreferrer")}
-          >
+          <CTAButton onClick={scrollToDonateSection}>
             Donate
           </CTAButton>
         </ButtonRow>
@@ -595,15 +600,13 @@ const App = () => {
         </InfoParagraph>
       </InfoSection>
 
-      {/* ===== Donation Form (with validation) ===== */}
-      <DonateSection aria-labelledby="donate-title">
+      <DonateSection ref={donateSectionRef} aria-labelledby="donate-title">
         <DonateHeader id="donate-title">Make a Difference Today</DonateHeader>
         <DonateSub>
           Your generosity creates lasting change. Every donation, no matter the size, helps us build a better tomorrow.
         </DonateSub>
 
         <FormGrid>
-          {/* Row 1, Col 1 — Choose Your Impact */}
           <Card>
             <CardTitle>Choose Your Impact</CardTitle>
             <AmountGrid>
@@ -650,20 +653,24 @@ const App = () => {
             {errors.amount && <ErrorText>{errors.amount}</ErrorText>}
           </Card>
 
-          {/* Row 1, Col 2 — Your Impact */}
           <Card>
             <CardTitle>Your Impact</CardTitle>
             <ImpactBox>
-              <div style={{ fontSize: "2rem", marginBottom: "8px" }}>
-                ${displayAmount || 0}
-              </div>
-              <div style={{ fontSize: "1.1rem" }}>
-                Feeds a family of four for one week
+              <div style={{ fontSize: "1.8rem" }}>${displayAmount || 0}</div>
+              <div style={{ marginTop: 6 }}>
+                {displayAmount >= 25 && displayAmount < 50
+                  ? "Provides school supplies for one student for a month"
+                  : displayAmount >= 50 && displayAmount < 100
+                  ? "Feeds a family of four for one week"
+                  : displayAmount >= 100 && displayAmount < 250
+                  ? "Provides emergency shelter for a family for one night"
+                  : displayAmount >= 250
+                  ? "Covers medical care for one person for a month"
+                  : ""}
               </div>
             </ImpactBox>
           </Card>
 
-          {/* Row 2, Col 1 — Your Information */}
           <Card>
             <CardTitle>Your Information</CardTitle>
             <TwoCol>
@@ -710,7 +717,7 @@ const App = () => {
                 required
               />
               <Helper>
-                Include country code, e.g. <em>+1 555-123-4567</em>.
+                Include country code, e.g. <em>+1 1234567890</em>.
               </Helper>
               {errors.phone && <ErrorText>{errors.phone}</ErrorText>}
             </div>
