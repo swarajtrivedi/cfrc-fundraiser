@@ -24,6 +24,10 @@ import {
     DiffText,
     Select,
     Helper,
+    ModalOverlay,
+    ModalContent,
+    QRImage,
+    CloseButton,
 
 } from "./DonationSection.styles"
 
@@ -31,6 +35,8 @@ import { HomeIcon } from "../../../icons/HomeIcon";
 import { HeartIcon } from "../../../icons/HeartIcon";
 import { UsersIcon } from "../../../icons/UsersIcon";
 import { BookIcon } from "../../../icons/BookIcon";
+
+import qr from "../../../images/image11.png"
 
 
 interface IDonationSection {
@@ -54,6 +60,7 @@ export const DonationSection = (props: IDonationSection) =>{
   const [country, setCountry] = useState("");
   const [hear, setHear] = useState("");
   const [payment, setPayment] = useState("");
+  const [showVenmoQR, setShowVenmoQR] = useState(false);
 
   // Error state
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -93,6 +100,11 @@ export const DonationSection = (props: IDonationSection) =>{
 
   const handleDonate = async () => {
     // run your existing validation first
+    if(payment == "Venmo"){
+      setShowVenmoQR(true);
+      return;
+    }
+
     if (!validate()) return;
   
     const amt = displayAmount;
@@ -377,6 +389,16 @@ export const DonationSection = (props: IDonationSection) =>{
                     </DiffList>
                   </Card>
                 </FormGrid>
+
+                {showVenmoQR && (
+                  <ModalOverlay>
+                    <ModalContent>
+                      <h2>Scan to Pay with Venmo</h2>
+                      <QRImage src={qr} alt="Venmo QR Code" />
+                      <CloseButton onClick={() => setShowVenmoQR(false)}>Close</CloseButton>
+                    </ModalContent>
+                  </ModalOverlay>
+                )}
             </DonateSection>
         </>
     )

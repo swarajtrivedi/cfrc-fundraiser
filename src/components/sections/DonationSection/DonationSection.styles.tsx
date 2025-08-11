@@ -224,6 +224,46 @@ const Helper = styled.p`
   color: #6b7280;
 `;
 
+const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+`;
+
+const ModalContent = styled.div`
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const QRImage = styled.img`
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+`;
+
+const CloseButton = styled.button`
+  margin-top: 15px;
+  padding: 8px 16px;
+  background-color: #0d2c6b;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+`;
+
 export {
     DonateSection,
     DonateHeader,
@@ -248,5 +288,9 @@ export {
     DiffText,
     Select,
     Helper,
-    
+    ModalOverlay,
+    ModalContent,
+    QRImage,
+    CloseButton,
+
 }
