@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/cfrc-fundraiser/static/css/main.f855e6bc.css",
-    "main.js": "/cfrc-fundraiser/static/js/main.3e4b3310.js",
+    "main.js": "/cfrc-fundraiser/static/js/main.d4e22db3.js",
     "static/js/453.6fad678a.chunk.js": "/cfrc-fundraiser/static/js/453.6fad678a.chunk.js",
     "static/media/image10.png": "/cfrc-fundraiser/static/media/image10.167c1dd4069b7c1e4ca1.png",
     "static/media/image9.png": "/cfrc-fundraiser/static/media/image9.bb3cd214a68c820a40b5.png",
@@ -12,13 +12,14 @@
     "static/media/image5.png": "/cfrc-fundraiser/static/media/image5.95769bdedcee0315a73f.png",
     "static/media/image6.png": "/cfrc-fundraiser/static/media/image6.744bf47f921308cfedcb.png",
     "static/media/image2.png": "/cfrc-fundraiser/static/media/image2.ab0c7960b78ddadbc3d7.png",
+    "static/media/image11.png": "/cfrc-fundraiser/static/media/image11.ec98fd998428f1c840c6.png",
     "index.html": "/cfrc-fundraiser/index.html",
     "main.f855e6bc.css.map": "/cfrc-fundraiser/static/css/main.f855e6bc.css.map",
-    "main.3e4b3310.js.map": "/cfrc-fundraiser/static/js/main.3e4b3310.js.map",
+    "main.d4e22db3.js.map": "/cfrc-fundraiser/static/js/main.d4e22db3.js.map",
     "453.6fad678a.chunk.js.map": "/cfrc-fundraiser/static/js/453.6fad678a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f855e6bc.css",
-    "static/js/main.3e4b3310.js"
+    "static/js/main.d4e22db3.js"
   ]
 }
