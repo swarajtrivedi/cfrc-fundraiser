@@ -34,11 +34,14 @@ export const HeaderSection = (props: IHeaderSection) =>{
               </DonateButton>
           </Header>
           <Nav>
-            {["Home", "Learn More", "Contact Us"].map((tab) => (
+            {["Home", "Donate", "Contact Us"].map((tab) => (
               <NavItem
                 key={tab}
                 active={tab === activeTab}
-                onClick={() => setActiveTab(tab)}
+                onClick={(e) => {
+                  setActiveTab(tab)
+                  if(tab == "Donate") scrollToDonateSection();
+                }}
               >
                 {tab}
               </NavItem>

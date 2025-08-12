@@ -8,7 +8,7 @@ const Section = styled.div`
 `;
 
 const Paragraph = styled.p`
-  color: #5c1a73;
+  // color: #5c1a73;
   font-weight: bold;
   margin: 6px 0;
   font-size: 1.5rem;
@@ -80,6 +80,7 @@ const InfoParagraph = styled.p<{ purple?: boolean }>`
   color: ${({ purple }) => (purple ? "#80267e" : "#0d2c6b")};
   font-weight: bold;
   margin: 12px 0;
+  text-align: left;
 `;
 
 const ImageRow = styled.div`
@@ -97,6 +98,37 @@ const InfoImage = styled.img`
   border-radius: 8px;
 `;
 
+const FeaturedRow = styled.div`
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+
+  @media (max-width: 768px) {
+    flex-direction: column; 
+    align-items: center;
+  }
+`;
+
+const CenterCol = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const SideImage = styled.img`
+  height: 100%;
+  max-width: 240px;
+  object-fit: cover;
+  border-radius: 10px;
+
+  @media (max-width: 768px) {
+    max-width: 90%;
+    height: auto;
+  }
+`;
+
 export {
     Section,
     Paragraph,
@@ -111,4 +143,7 @@ export {
     InfoParagraph,
     ImageRow,
     InfoImage,
+    FeaturedRow,
+    CenterCol,
+    SideImage,
 }

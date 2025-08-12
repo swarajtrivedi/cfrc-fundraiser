@@ -166,9 +166,8 @@ const DiffItem = styled.li`
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
-  margin-bottom: 24px;
   &:first-child {
-    margin-top: 20px;
+    margin-top: 10px;
   }
   &:last-child {
     margin-bottom: 0;

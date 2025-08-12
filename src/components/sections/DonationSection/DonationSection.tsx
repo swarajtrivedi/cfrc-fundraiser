@@ -37,6 +37,7 @@ import { UsersIcon } from "../../../icons/UsersIcon";
 import { BookIcon } from "../../../icons/BookIcon";
 
 import qr from "../../../images/image11.png"
+import { TravelIcon } from "../../../icons/TravelIcon";
 
 
 interface IDonationSection {
@@ -215,14 +216,17 @@ export const DonationSection = (props: IDonationSection) =>{
                       <div style={{ fontSize: "1.8rem" }}>${displayAmount || 0}</div>
                       <div style={{ marginTop: 6 }}>
                         {displayAmount >= 25 && displayAmount < 50
-                          ? "Provides school supplies for one student for a month"
+                          ? "Sponsors educational materials to raise awareness about HTLV-associated diseases in underserved regions."
                           : displayAmount >= 50 && displayAmount < 100
-                          ? "Feeds a family of four for one week"
+                          ? "Supports translation and distribution of scientific findings into accessible formats for patients and caregivers in LMICs."
                           : displayAmount >= 100 && displayAmount < 250
-                          ? "Provides emergency shelter for a family for one night"
-                          : displayAmount >= 250
-                          ? "Covers medical care for one person for a month"
-                          : ""}
+                          ? "Covers one month of digital outreach to engage new donors and advocates through social media and email campaigns."
+                          : displayAmount >= 250 && displayAmount < 500
+                          ? "Sponsors partial travel or virtual access for one LMIC-based researcher to participate in HTLV2026 and share their work globally."
+                          : displayAmount >= 500
+                          ? "Funds registration of an attendee for the International Conference HTLV2026."
+                          : ""
+                          }
                       </div>
                     </ImpactBox>
                   </Card>
@@ -347,13 +351,38 @@ export const DonationSection = (props: IDonationSection) =>{
                   <Card>
                     <CardTitle>See the Difference</CardTitle>
                     <DiffList>
+
+
                       <DiffItem>
-                        <DiffIcon bg="#eaf2ff">
-                          <BookIcon />
+                        <DiffIcon bg="#ffeef0">
+                          <HeartIcon />
                         </DiffIcon>
                         <div>
-                          <DiffAmount>$25</DiffAmount>
-                          <DiffText>Provides school supplies for one student for a month</DiffText>
+                          <DiffAmount>$500</DiffAmount>
+                          <DiffText>Funds registration of an attendee for the International Conference HTLV2026.</DiffText>
+                        </div>
+                      </DiffItem>
+
+                      <DiffItem>
+                        <DiffIcon bg="#ffeef0">
+                          <TravelIcon />
+                        </DiffIcon>
+                        <div>
+                          <DiffAmount>$250</DiffAmount>
+                          <DiffText>Sponsors partial travel or virtual access for one LMIC-based researcher to participate in HTLV2026 and share their work globally.</DiffText>
+                        </div>
+                      </DiffItem>
+                      
+                        
+                      
+                        
+                      <DiffItem>
+                        <DiffIcon bg="#f5efff">
+                          <HomeIcon />
+                        </DiffIcon>
+                        <div>
+                          <DiffAmount>$100</DiffAmount>
+                          <DiffText>Covers one month of digital outreach to engage new donors and advocates through social media and email campaigns.</DiffText>
                         </div>
                       </DiffItem>
                         
@@ -363,29 +392,21 @@ export const DonationSection = (props: IDonationSection) =>{
                         </DiffIcon>
                         <div>
                           <DiffAmount>$50</DiffAmount>
-                          <DiffText>Feeds a family of four for one week</DiffText>
+                          <DiffText>Supports translation and distribution of scientific findings into accessible formats for patients and caregivers in LMICs.</DiffText>
                         </div>
                       </DiffItem>
-                        
+
                       <DiffItem>
-                        <DiffIcon bg="#f5efff">
-                          <HomeIcon />
+                        <DiffIcon bg="#eaf2ff">
+                          <BookIcon />
                         </DiffIcon>
                         <div>
-                          <DiffAmount>$100</DiffAmount>
-                          <DiffText>Provides emergency shelter for a family for one night</DiffText>
+                          <DiffAmount>$25</DiffAmount>
+                          <DiffText>Sponsors educational materials to raise awareness about HTLV-associated diseases in underserved regions.</DiffText>
                         </div>
                       </DiffItem>
-                        
-                      <DiffItem>
-                        <DiffIcon bg="#ffeef0">
-                          <HeartIcon />
-                        </DiffIcon>
-                        <div>
-                          <DiffAmount>$250</DiffAmount>
-                          <DiffText>Covers medical care for one person for a month</DiffText>
-                        </div>
-                      </DiffItem>
+
+                      
                     </DiffList>
                   </Card>
                 </FormGrid>
