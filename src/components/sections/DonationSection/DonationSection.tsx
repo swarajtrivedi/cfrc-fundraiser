@@ -86,9 +86,9 @@ export const DonationSection = (props: IDonationSection) =>{
     else if (!emailOk) e.email = "Please enter a valid email address.";
 
     const phoneOk = /^\+\d{1,3}[-\s]?\d{6,14}([-\s]?\d{2,6})*$/.test(phone);
-    if (!phone.trim()) e.phone = "Phone number is required.";
-    else if (!phoneOk)
-      e.phone = "Include country code, e.g. +1 1234567890.";
+    // if (!phone.trim()) e.phone = "Phone number is required.";
+    // else if (!phoneOk)
+    //   e.phone = "Include country code, e.g. +1 1234567890.";
 
     if (!country) e.country = "Country is required.";
     if (!hear) e.hear = "This field is required.";
@@ -101,10 +101,10 @@ export const DonationSection = (props: IDonationSection) =>{
 
   const handleDonate = async () => {
     // run your existing validation first
-    if(payment == "Venmo"){
-      setShowVenmoQR(true);
-      return;
-    }
+    // if(payment == "Venmo"){
+    //   setShowVenmoQR(true);
+    //   return;
+    // }
 
     if (!validate()) return;
   
@@ -295,6 +295,9 @@ export const DonationSection = (props: IDonationSection) =>{
                             Country
                           </option>
                           <option>United States</option>
+                          <option>South Africa</option>
+                          <option>Peru</option>
+                          <option>Jamaica</option>
                           <option>Brazil</option>
                           <option>Japan</option>
                           <option>Australia</option>
@@ -337,7 +340,7 @@ export const DonationSection = (props: IDonationSection) =>{
                           Select Payment Method
                         </option>
                         <option>Credit Card</option>
-                        <option>Venmo</option>
+                        {/* <option>Venmo</option> */}
                       </Select>
                       {errors.payment && <ErrorText>{errors.payment}</ErrorText>}
                     </div>
