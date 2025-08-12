@@ -146,7 +146,7 @@ export const BodySection = (props: IBodySection) =>{
                       
                   {/* Right image (desktop) */}
                   
-                  <SideImage src={htlvQuote} alt="Right visual"  />
+                  <SideImage src={htlvQuote} alt="Right visual" style={{marginTop: "30px"}} />
                   
                 </FeaturedRow>
 
