@@ -48,18 +48,18 @@ export const BodySection = (props: IBodySection) =>{
 
                 <ImageGallery>
                   <ImageBox>
-                    <Image src={smear} alt="ATLL Blood Smear" />
-                    ATLL Blood Smear
-                  </ImageBox>
-                  <ImageBox>
-                    <Image src={lab} alt="Lab" />
-                  </ImageBox>
-                  <ImageBox>
                     <Image src={htlv} alt="HTLV vs HIV" />
                   </ImageBox>
                   <ImageBox>
                     <Image src={skin} alt="Skin involvement" />
                     Skin involvement is common<br />and often painful
+                  </ImageBox>
+                  <ImageBox>
+                    <Image src={lab} alt="Lab" />
+                  </ImageBox>
+                  <ImageBox>
+                    <Image src={smear} alt="ATLL Blood Smear" />
+                    ATLL Blood Smear
                   </ImageBox>
                 </ImageGallery>
 

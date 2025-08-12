@@ -88,7 +88,7 @@ export const DonationSection = (props: IDonationSection) =>{
     const phoneOk = /^\+\d{1,3}[-\s]?\d{6,14}([-\s]?\d{2,6})*$/.test(phone);
     if (!phone.trim()) e.phone = "Phone number is required.";
     else if (!phoneOk)
-      e.phone = "Include country code, e.g. +1 555-123-4567.";
+      e.phone = "Include country code, e.g. +1 1234567890.";
 
     if (!country) e.country = "Country is required.";
     if (!hear) e.hear = "This field is required.";
