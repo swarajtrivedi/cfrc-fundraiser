@@ -13,16 +13,18 @@ import {
 } from "./HeaderSection.styles"
 
 interface IHeaderSection {
-  scrollToDonateSection: ()=>void
+  scrollToDonateSection: ()=>void,
+  scrollToFooterSection: ()=>void
 }
 
 export const HeaderSection = (props: IHeaderSection) =>{
   const {
-    scrollToDonateSection
+    scrollToDonateSection,
+    scrollToFooterSection
   } = props;
   const [activeTab, setActiveTab] = useState("Home");
   return (
-      <>
+      <> 
           <Header>
               <Logo src={logo} alt="CFRC Logo" />
               <HeaderTextContainer>
@@ -41,6 +43,7 @@ export const HeaderSection = (props: IHeaderSection) =>{
                 onClick={(e) => {
                   setActiveTab(tab)
                   if(tab == "Donate") scrollToDonateSection();
+                  if(tab == "Contact Us") scrollToFooterSection();
                 }}
               >
                 {tab}

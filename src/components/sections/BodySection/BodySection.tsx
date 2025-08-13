@@ -22,9 +22,10 @@ import smear from "../../../images/image1.png";
 import lab from "../../../images/image2.png";
 import htlv from "../../../images/image5.png";
 import skin from "../../../images/image9.png";
-import conference from "../../../images/image3.png";
-import groupPicture from "../../../images/image6.png";
-import meetingPicture from "../../../images/image7.png";
+import presentationPicture from "../../../images/image3 (1).png"
+import conference from "../../../images/image4 (1).png";
+import groupPicture from "../../../images/image6 (1).png";
+import meetingPicture from "../../../images/image7 (1).png";
 import htlvArticle from "../../../images/image12.png";
 import htlvQuote from "../../../images/image13.png";
 
@@ -135,8 +136,9 @@ export const BodySection = (props: IBodySection) =>{
                 </InfoParagraph>
                 <br/>
                 <ImageRow>
-                  <InfoImage src={groupPicture} alt="Group photo" />
                   <InfoImage src={conference} alt="Conference picture" />
+                  <InfoImage src={presentationPicture} alt="Meeting room" />
+                  <InfoImage src={groupPicture} alt="Group photo" />
                   <InfoImage src={meetingPicture} alt="Meeting room" />
                 </ImageRow>
                 <br/>

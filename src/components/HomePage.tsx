@@ -8,20 +8,24 @@ import { BodySection } from "./sections/BodySection/BodySection";
 const App = () => {
 
   const donateSectionRef = useRef<HTMLDivElement>(null);
+  const footerSectionRef = useRef<HTMLDivElement>(null);
   const scrollToDonateSection = () => {
     donateSectionRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+  const scrollToFooterSection = () => {
+    footerSectionRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <Page>
 
-      <HeaderSection scrollToDonateSection={scrollToDonateSection}/>
+      <HeaderSection scrollToDonateSection={scrollToDonateSection} scrollToFooterSection={scrollToFooterSection}/>
 
       <BodySection scrollToDonateSection={scrollToDonateSection} />
       
       <DonationSection donateSectionRef={donateSectionRef}/>
 
-      <FooterSection />
+      <FooterSection footerSectionRef={footerSectionRef}/>
       
     </Page>
   );

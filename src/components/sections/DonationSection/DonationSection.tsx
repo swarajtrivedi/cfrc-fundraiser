@@ -373,7 +373,7 @@ export const DonationSection = (props: IDonationSection) =>{
                         </DiffIcon>
                         <div>
                           <DiffAmount>&gt;$500</DiffAmount>
-                          <DiffText>Funds registration of an attendee for the International Conference HTLV2026.</DiffText>
+                          <DiffText>Helps advance critical research and innovation to combat lesser-known retroviruses that affect millions worldwide and can lead to devastating diseases.</DiffText>
                         </div>
                       </DiffItem>
 

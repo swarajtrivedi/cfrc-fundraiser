@@ -92,8 +92,8 @@ const ImageRow = styled.div`
 `;
 
 const InfoImage = styled.img`
-  width: 280px;
-  height: 180px;
+  width: 450px;
+  height: 300px;
   object-fit: cover;
   border-radius: 8px;
 `;
