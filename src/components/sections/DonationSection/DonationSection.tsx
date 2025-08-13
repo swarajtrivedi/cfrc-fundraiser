@@ -216,15 +216,17 @@ export const DonationSection = (props: IDonationSection) =>{
                       <div style={{ fontSize: "1.8rem" }}>${displayAmount || 0}</div>
                       <div style={{ marginTop: 6 }}>
                         {displayAmount >= 25 && displayAmount < 50
-                          ? "Sponsors educational materials to raise awareness about HTLV-associated diseases in underserved regions."
+                          ? "Supports distribution of scientific findings in consumable formats for patients and caregivers in LMICs."
                           : displayAmount >= 50 && displayAmount < 100
-                          ? "Supports translation and distribution of scientific findings into accessible formats for patients and caregivers in LMICs."
+                          ? "Sponsors educational materials to raise awareness about HTLV-associated diseases, especially underserved regions."
                           : displayAmount >= 100 && displayAmount < 250
-                          ? "Covers one month of digital outreach to engage new donors and advocates through social media and email campaigns."
+                          ? "Covers portion of monthly spend on outreach to engage healthcare professionals, researchers, patients, communities and new donors."
                           : displayAmount >= 250 && displayAmount < 500
                           ? "Sponsors partial travel or virtual access for one LMIC-based researcher to participate in HTLV2026 and share their work globally."
-                          : displayAmount >= 500
+                          : displayAmount == 500 
                           ? "Funds registration of an attendee for the International Conference HTLV2026."
+                          :  displayAmount > 500 
+                          ? "Help advance critical research and innovation to combat lesser-known retroviruses that affect millions worldwide and can lead to devastating diseases."
                           : ""
                           }
                       </div>
