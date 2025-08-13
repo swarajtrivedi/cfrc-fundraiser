@@ -190,7 +190,7 @@ export const DonationSection = (props: IDonationSection) =>{
                           if (!customAmount) setCustomAmount(String(amount));
                         }}
                       >
-                        Custom
+                        &gt;500/Custom
                       </AmountButton>
                     </AmountGrid>
                     
@@ -375,9 +375,6 @@ export const DonationSection = (props: IDonationSection) =>{
                           <DiffText>Sponsors partial travel or virtual access for one LMIC-based researcher to participate in HTLV2026 and share their work globally.</DiffText>
                         </div>
                       </DiffItem>
-                      
-                        
-                      
                         
                       <DiffItem>
                         <DiffIcon bg="#f5efff">
@@ -385,7 +382,7 @@ export const DonationSection = (props: IDonationSection) =>{
                         </DiffIcon>
                         <div>
                           <DiffAmount>$100</DiffAmount>
-                          <DiffText>Covers one month of digital outreach to engage new donors and advocates through social media and email campaigns.</DiffText>
+                          <DiffText>Covers portion of monthly spend on outreach to engage healthcare professionals, researchers, patients, communities and new donors.</DiffText>
                         </div>
                       </DiffItem>
                         
@@ -395,7 +392,7 @@ export const DonationSection = (props: IDonationSection) =>{
                         </DiffIcon>
                         <div>
                           <DiffAmount>$50</DiffAmount>
-                          <DiffText>Supports translation and distribution of scientific findings into accessible formats for patients and caregivers in LMICs.</DiffText>
+                          <DiffText>Sponsors educational materials to raise awareness about HTLV-associated diseases, especially underserved regions.</DiffText>
                         </div>
                       </DiffItem>
 
@@ -405,7 +402,7 @@ export const DonationSection = (props: IDonationSection) =>{
                         </DiffIcon>
                         <div>
                           <DiffAmount>$25</DiffAmount>
-                          <DiffText>Sponsors educational materials to raise awareness about HTLV-associated diseases in underserved regions.</DiffText>
+                          <DiffText>Supports distribution of scientific findings in consumable formats for patients and caregivers in LMICs.</DiffText>
                         </div>
                       </DiffItem>
 
