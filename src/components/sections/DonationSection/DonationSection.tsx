@@ -35,7 +35,6 @@ import { HomeIcon } from "../../../icons/HomeIcon";
 import { HeartIcon } from "../../../icons/HeartIcon";
 import { UsersIcon } from "../../../icons/UsersIcon";
 import { BookIcon } from "../../../icons/BookIcon";
-
 import qr from "../../../images/image11.png"
 import { TravelIcon } from "../../../icons/TravelIcon";
 import { DollarIcon } from "../../../icons/DollarIcon";
@@ -103,10 +102,10 @@ export const DonationSection = (props: IDonationSection) =>{
 
   const handleDonate = async () => {
     // run your existing validation first
-    // if(payment == "Venmo"){
-    //   setShowVenmoQR(true);
-    //   return;
-    // }
+    if(payment == "Venmo"){
+      setShowVenmoQR(true);
+      return;
+    }
 
     if (!validate()) return;
   
@@ -344,7 +343,7 @@ export const DonationSection = (props: IDonationSection) =>{
                           Select Payment Method
                         </option>
                         <option>Credit Card</option>
-                        {/* <option>Venmo</option> */}
+                        <option>Venmo</option>
                       </Select>
                       {errors.payment && <ErrorText>{errors.payment}</ErrorText>}
                     </div>

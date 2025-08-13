@@ -249,7 +249,7 @@ const ModalContent = styled.div`
 
 const QRImage = styled.img`
   max-width: 100%;
-  height: auto;
+  height: 20em;
   border-radius: 8px;
 `;
 
