@@ -5,6 +5,7 @@ const FinalFooter = styled.div`
   color: white;
   padding: 20px 5vw;
   font-style: italic;
+  text-align: center;
 `;
 
 const FooterHeading = styled.p`
@@ -15,13 +16,31 @@ const FooterHeading = styled.p`
 `;
 
 const FooterText = styled.p`
-  font-size: 1.4rem;
-  margin-top: 10px;
+  font-size: 1.2rem;
+  margin: 10px 0;
+  line-height: 1.6;
+`;
+
+const FooterBottom = styled.div`
+  font-style: normal;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+`;
+
+const FooterLink = styled.a`
+  color: white;
+  text-decoration: underline;
 `;
 
 export {
     FinalFooter,
     FooterHeading,
     FooterText,
+    FooterBottom,
+    FooterLink,
 
 }
