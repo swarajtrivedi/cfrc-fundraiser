@@ -11,7 +11,7 @@ export const FooterSection = () =>{
         <>
             <FinalFooter>
       <FooterText style={{ fontStyle: "normal", fontWeight: "bold" }}>
-        Contact Us: <FooterLink href="mailto:info@donatecfrc.org">admin@donatecfrc.org</FooterLink>
+        Contact Us: <FooterLink href="mailto:info@donatecfrc.org">info@donatecfrc.org</FooterLink>
       </FooterText>
 
       <FooterHeading>About HTLV & ATLL</FooterHeading>
