@@ -23,7 +23,6 @@ import lab from "../../../images/image2.png";
 import htlv from "../../../images/image5.png";
 import skin from "../../../images/image9.png";
 import conference from "../../../images/image3.png";
-import presentation from "../../../images/image4.png";
 import groupPicture from "../../../images/image6.png";
 import meetingPicture from "../../../images/image7.png";
 import htlvArticle from "../../../images/image12.png";
@@ -59,7 +58,7 @@ export const BodySection = (props: IBodySection) =>{
                   </ImageBox>
                   <ImageBox>
                     <Image src={smear} alt="ATLL Blood Smear" />
-                    ATLL Blood Smear
+                    Getty image of ATLL Blood Smear
                   </ImageBox>
                 </ImageGallery>
 
@@ -105,7 +104,9 @@ export const BodySection = (props: IBodySection) =>{
               
                 <FeaturedRow>
                   {/* Left image (desktop) */}
+                  <a style={{height:""}} href="https://www.inquirer.com/health/human-t-lymphotropic-virus-blood-cancer-diagnosis-symptoms-awareness-20250806.html?id=6WyFpNuW1gcf8&utm_source=social&utm_campaign=gift_link&utm_medium=referral">
                   <SideImage src={htlvArticle} alt="Left visual" />
+                  </a>
 
                   {/* Center content */}
                   <CenterCol>
@@ -145,8 +146,9 @@ export const BodySection = (props: IBodySection) =>{
                   </CenterCol>
                       
                   {/* Right image (desktop) */}
-                  
-                  <SideImage src={htlvQuote} alt="Right visual" style={{marginTop: "30px"}} />
+                  <a style={{height:""}} href="https://www.inquirer.com/health/human-t-lymphotropic-virus-blood-cancer-diagnosis-symptoms-awareness-20250806.html?id=6WyFpNuW1gcf8&utm_source=social&utm_campaign=gift_link&utm_medium=referral">
+                    <SideImage src={htlvQuote} alt="Right visual" />
+                  </a>
                   
                 </FeaturedRow>
 
@@ -167,7 +169,6 @@ export const BodySection = (props: IBodySection) =>{
                 </InfoParagraph>
                 <br/>
                 <ImageRow>
-                  <InfoImage src={presentation} alt="HTLV2026 venue" />
                   <InfoImage src={groupPicture} alt="Group photo" />
                   <InfoImage src={conference} alt="Conference picture" />
                   <InfoImage src={meetingPicture} alt="Meeting room" />

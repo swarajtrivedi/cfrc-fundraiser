@@ -92,7 +92,7 @@ const ImageRow = styled.div`
 `;
 
 const InfoImage = styled.img`
-  width: 240px;
+  width: 280px;
   height: 180px;
   object-fit: cover;
   border-radius: 8px;
@@ -115,14 +115,15 @@ const CenterCol = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 `;
 
 const SideImage = styled.img`
-  height: 100%;
   max-width: 240px;
+  max-height: 350px;
   object-fit: cover;
   border-radius: 10px;
-
+  height: 100%;
   @media (max-width: 768px) {
     max-width: 90%;
     height: auto;
