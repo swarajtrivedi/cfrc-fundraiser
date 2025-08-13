@@ -38,6 +38,7 @@ import { BookIcon } from "../../../icons/BookIcon";
 
 import qr from "../../../images/image11.png"
 import { TravelIcon } from "../../../icons/TravelIcon";
+import { DollarIcon } from "../../../icons/DollarIcon";
 
 
 interface IDonationSection {
@@ -74,9 +75,10 @@ export const DonationSection = (props: IDonationSection) =>{
 
     if (!amt || amt <= 0) {
       e.amount = "Please choose or enter a valid amount.";
-    } else if (customAmount && amt < 25) {
-      e.amount = "Minimum donation is $25.";
-    }
+    } 
+    // else if (customAmount && amt < 25) {
+    //   e.amount = "Minimum donation is $25.";
+    // }
 
     if (!first.trim()) e.first = "First name is required.";
     if (!last.trim()) e.last = "Last name is required.";
@@ -109,8 +111,8 @@ export const DonationSection = (props: IDonationSection) =>{
     if (!validate()) return;
   
     const amt = displayAmount;
-    if (!amt || amt < 25) {
-      setErrors((prev) => ({ ...prev, amount: "Minimum donation is $25." }));
+    if (!amt) {
+      setErrors((prev) => ({ ...prev, amount: "Please enter an amount." }));
       return;
     }
   
@@ -206,7 +208,7 @@ export const DonationSection = (props: IDonationSection) =>{
                         hasError={!!errors.amount}
                       />
                     </CurrencyInputWrapper>
-                    <Helper>Minimum donation is $25 USD</Helper>
+                    <Helper>Minimum recommended donation is $25 USD</Helper>
                     {errors.amount && <ErrorText>{errors.amount}</ErrorText>}
                   </Card>
                     
@@ -356,7 +358,16 @@ export const DonationSection = (props: IDonationSection) =>{
                   <Card>
                     <CardTitle>See the Difference</CardTitle>
                     <DiffList>
-
+                      
+                      <DiffItem>
+                        <DiffIcon bg="#ffeef0">
+                          <DollarIcon />
+                        </DiffIcon>
+                        <div>
+                          <DiffAmount>&gt;$500</DiffAmount>
+                          <DiffText>Funds registration of an attendee for the International Conference HTLV2026.</DiffText>
+                        </div>
+                      </DiffItem>
 
                       <DiffItem>
                         <DiffIcon bg="#ffeef0">

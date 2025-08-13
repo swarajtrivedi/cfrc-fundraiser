@@ -17,7 +17,7 @@ const FooterHeading = styled.p`
 
 const FooterText = styled.p`
   font-size: 1.2rem;
-  margin: 10px 0;
+  margin: 8px 0;
   line-height: 1.6;
 `;
 
@@ -28,7 +28,7 @@ const FooterBottom = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  margin-top: 20px;
+  margin-top: 10px;
 `;
 
 const FooterLink = styled.a`

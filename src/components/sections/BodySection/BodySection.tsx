@@ -66,40 +66,6 @@ export const BodySection = (props: IBodySection) =>{
                   About 20 million people infected worldwide with a recent epidemic in Australian aboriginals' communities. There is a dire need of help since there is no vaccine, or cure. More research is needed for better treatments. Your support will help fund innovative therapeutic research & participation of attendees in the international conference who otherwise can not attend, including participants from underserved regions.
                 </Paragraph>
 
-                {/* <FooterBox>
-                  <WhiteParagraph>
-                    <strong>HTLV2026</strong> (
-                    <a
-                      href="https://htlv2026.org"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ color: "white", textDecoration: "underline" }}
-                    >
-                      htlv2026.org
-                    </a>
-                    )<br /><br/>
-                    The 22nd International Conference on<br/> Human Retrovirology: <br/> HTLV and related viruses<br /><br/>
-                    June 3rd – 6th, 2026 <br /> Philadelphia, PA, USA
-                  </WhiteParagraph>
-                </FooterBox> */}
-                
-                {/* <ButtonRow>
-                  <CTAButton
-                    onClick={() =>
-                      window.open(
-                        "https://medivents.eventsair.com/htlv-conference-2026/htlv26/Site/Register",
-                        "_blank",
-                        "noopener,noreferrer"
-                      )
-                    }
-                  >
-                    Register
-                  </CTAButton>
-                  <CTAButton onClick={scrollToDonateSection}>
-                    Donate
-                  </CTAButton>
-                </ButtonRow> */}
-
                 <br/>
               
                 <FeaturedRow>

@@ -185,10 +185,10 @@ const DiffIcon = styled.div<{ bg: string }>`
 `;
 
 const DiffAmount = styled.div`
-  font-weight: 800;
+  font-weight: 600;
   color: #0d2c6b;
-  font-size: 1.35rem;
-  line-height: 1.2;
+  font-size: 1.1rem;
+  line-height: 0.5;
 `;
 
 const DiffText = styled.div`
