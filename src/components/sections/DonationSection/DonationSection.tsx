@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify"
 
 import {
     DonateSection,
@@ -38,6 +39,7 @@ import { BookIcon } from "../../../icons/BookIcon";
 import qr from "../../../images/image11.png"
 import { TravelIcon } from "../../../icons/TravelIcon";
 import { DollarIcon } from "../../../icons/DollarIcon";
+import { SpinnerIcon } from "../../../icons/SpinnerIcon";
 
 
 interface IDonationSection {
@@ -62,6 +64,7 @@ export const DonationSection = (props: IDonationSection) =>{
   const [hear, setHear] = useState("");
   const [payment, setPayment] = useState("");
   const [showVenmoQR, setShowVenmoQR] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   // Error state
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -116,6 +119,7 @@ export const DonationSection = (props: IDonationSection) =>{
     }
   
     try {
+      setLoading(true);
       const amountInCents = Math.round(Number(amt) * 100);
       const BACKEND_URL = "https://cfrc-fundraiser-backend.onrender.com";
       // For local testing:
@@ -151,7 +155,12 @@ export const DonationSection = (props: IDonationSection) =>{
       }
     } catch (err) {
       console.error(err);
-      alert("Sorry, we couldn't start the checkout. Please try again.");
+      toast.error("Sorry, we couldn't start the checkout. Please try again.", {
+        position: "top-center",
+        autoClose: 4000,
+      });
+    } finally{
+      setLoading(false);
     }
   };
 
@@ -348,8 +357,8 @@ export const DonationSection = (props: IDonationSection) =>{
                       {errors.payment && <ErrorText>{errors.payment}</ErrorText>}
                     </div>
                         
-                    <DonateNow aria-label="Donate Now" onClick={handleDonate}>
-                      Donate Now
+                    <DonateNow aria-label="Donate Now" onClick={handleDonate} disabled={loading}>
+                      {loading ? <SpinnerIcon /> : "Donate Now"}
                     </DonateNow>
                   </Card>
                         
