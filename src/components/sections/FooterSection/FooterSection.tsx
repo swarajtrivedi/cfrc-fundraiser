@@ -11,7 +11,7 @@ export const FooterSection = () =>{
         <>
             <FinalFooter>
       <FooterText style={{ fontStyle: "normal", fontWeight: "bold" }}>
-        Contact Us: <FooterLink href="mailto:admin@donatecfrc.org">admin@donatecfrc.org</FooterLink>
+        Contact Us: <FooterLink href="mailto:info@donatecfrc.org">admin@donatecfrc.org</FooterLink>
       </FooterText>
 
       <FooterHeading>About HTLV & ATLL</FooterHeading>
@@ -27,8 +27,9 @@ export const FooterSection = () =>{
         <p>
           Website By:{" "}
           <FooterLink href="https://myimaginity.com" target="_blank" rel="noopener noreferrer">
-            MyImaginity Software & IT Services, PA, USA
+            MyImaginity  
           </FooterLink>
+          {" "}PA, USA
         </p>
       </FooterBottom>
     </FinalFooter>
