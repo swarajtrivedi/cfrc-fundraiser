@@ -43,7 +43,7 @@ export const BodySection = (props: IBodySection) =>{
         
             <Section>
                 <Paragraph style={{ color: "#0d2c6b", textAlign: "left" }}>
-                  CFRC is a campaign for the rare form of blood cancer linked with a tumor virus, human T lymphotropic virus I (HTLV-1), which is a close cousin of HIV. Major themes are to disseminate knowledge, spread awareness, engage patients, communities, and support research for an aggressive form of Non-Hodgkin’s lymphoma, ATLL (Adult T-cell Leukemia/Lymphoma).
+                CFRC is a campaign to raise awareness about a rare form of blood cancer caused by the tumor virus namely human T-cell leukemia virus 1 (HTLV-1). Major themes are to disseminate knowledge, spread awareness, engage patients, communities, and support research for an aggressive form of Non-Hodgkin’s lymphoma, ATLL (Adult T-cell Leukemia/Lymphoma).
                 </Paragraph>
 
                 <ImageGallery>
