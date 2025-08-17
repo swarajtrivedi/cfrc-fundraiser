@@ -65,6 +65,7 @@ export const DonationSection = (props: IDonationSection) =>{
   const [payment, setPayment] = useState("");
   const [showVenmoQR, setShowVenmoQR] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [anonymous, setAnonymous] = useState(false);
 
   // Error state
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -81,6 +82,11 @@ export const DonationSection = (props: IDonationSection) =>{
     // else if (customAmount && amt < 25) {
     //   e.amount = "Minimum donation is $25.";
     // }
+
+    if(anonymous){
+      setErrors(e);
+      return;
+    }
 
     if (!first.trim()) e.first = "First name is required.";
     if (!last.trim()) e.last = "Last name is required.";
@@ -121,9 +127,9 @@ export const DonationSection = (props: IDonationSection) =>{
     try {
       setLoading(true);
       const amountInCents = Math.round(Number(amt) * 100);
-      const BACKEND_URL = "https://cfrc-fundraiser-backend.onrender.com";
+      // const BACKEND_URL = "https://cfrc-fundraiser-backend.onrender.com";
       // For local testing:
-      // const BACKEND_URL = "http://localhost:8080";
+      const BACKEND_URL = "http://localhost:8080";
       const res = await fetch(`${BACKEND_URL}/create-checkout-session`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -245,6 +251,17 @@ export const DonationSection = (props: IDonationSection) =>{
                         
                   <Card>
                     <CardTitle>Your Information</CardTitle>
+                    <div style={{ marginBottom: "1rem" }}>
+                      <label>
+                        <input
+                          type="checkbox"
+                          checked={anonymous}
+                          onChange={() => setAnonymous((prev) => !prev)}
+                          style={{ marginRight: "0.5rem" }}
+                        />
+                        Donate Anonymously
+                      </label>
+                    </div>
                     <TwoCol>
                       <Input
                         placeholder="First Name"
@@ -253,6 +270,7 @@ export const DonationSection = (props: IDonationSection) =>{
                         onChange={(e) => setFirst(e.target.value)}
                         hasError={!!errors.first}
                         required
+                        disabled={anonymous}
                       />
                       <Input
                         placeholder="Last Name"
@@ -261,6 +279,7 @@ export const DonationSection = (props: IDonationSection) =>{
                         onChange={(e) => setLast(e.target.value)}
                         hasError={!!errors.last}
                         required
+                        disabled={anonymous}
                       />
                     </TwoCol>
                     {errors.first && <ErrorText>{errors.first}</ErrorText>}
@@ -275,6 +294,7 @@ export const DonationSection = (props: IDonationSection) =>{
                       onChange={(e) => setEmail(e.target.value)}
                       hasError={!!errors.email}
                       required
+                      disabled={anonymous}
                     />
                     {errors.email && <ErrorText>{errors.email}</ErrorText>}
                         
@@ -287,6 +307,7 @@ export const DonationSection = (props: IDonationSection) =>{
                         onChange={(e) => setPhone(e.target.value)}
                         hasError={!!errors.phone}
                         required
+                        disabled={anonymous}
                       />
                       <Helper>
                         Include country code, e.g. <em>+1 1234567890</em>.
@@ -302,6 +323,7 @@ export const DonationSection = (props: IDonationSection) =>{
                           onChange={(e) => setCountry(e.target.value)}
                           hasError={!!errors.country}
                           required
+                          disabled={anonymous}
                         >
                           <option value="" disabled>
                             Country
