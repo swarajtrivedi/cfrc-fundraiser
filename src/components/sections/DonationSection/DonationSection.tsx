@@ -85,7 +85,7 @@ export const DonationSection = (props: IDonationSection) =>{
 
     if(anonymous){
       setErrors(e);
-      return;
+      return true;
     }
 
     if (!first.trim()) e.first = "First name is required.";
