@@ -127,7 +127,7 @@ export const DonationSection = (props: IDonationSection) =>{
     try {
       setLoading(true);
       const amountInCents = Math.round(Number(amt) * 100);
-      const BACKEND_URL = "https://donatecfrc.org/api/index.php";
+      const BACKEND_URL = "https://n2ac5afuvvns5jqacxd7shnuku0qxqaa.lambda-url.us-east-1.on.aws";
       // For local testing:
       // const BACKEND_URL = "http://localhost:8080";
       const res = await fetch(`${BACKEND_URL}/create-checkout-session`, {
