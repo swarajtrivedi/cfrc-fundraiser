@@ -127,7 +127,7 @@ export const DonationSection = (props: IDonationSection) =>{
     try {
       setLoading(true);
       const amountInCents = Math.round(Number(amt) * 100);
-      const BACKEND_URL = "https://cfrc-fundraiser-backend.onrender.com";
+      const BACKEND_URL = "https://donatecfrc.org/api";
       // For local testing:
       // const BACKEND_URL = "http://localhost:8080";
       const res = await fetch(`${BACKEND_URL}/create-checkout-session`, {
