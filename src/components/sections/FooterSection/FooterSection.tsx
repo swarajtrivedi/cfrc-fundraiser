@@ -21,6 +21,13 @@ export const FooterSection = (props: IFooterSection) =>{
                 Contact Us: <FooterLink href="mailto:info@donatecfrc.org">info@donatecfrc.org</FooterLink>
               </FooterText>
 
+              <FooterHeading>Privacy and Data Protection Statement</FooterHeading>
+              
+              <FooterText>
+              At CFRC, we are committed to protecting the personal information of our donors, partners, and visitors. 
+              We collect only the data necessary to process donations, communicate impact, and improve our services. 
+              We do not sell, trade, or share your personal information with any third parties.
+              </FooterText>
               <FooterHeading>About HTLV & ATLL</FooterHeading>
 
               <FooterText>
