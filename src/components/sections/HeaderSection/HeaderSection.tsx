@@ -30,7 +30,7 @@ export const HeaderSection = (props: IHeaderSection) =>{
     if (location.pathname === "/learn-more") return "Learn More";
     if (location.pathname === "/") return "Home";
     if (location.pathname === "/donate") return "Donate";
-    return "Contact Us"; // fallback for scrollToFooterSection
+    return "Home"; // fallback for scrollToFooterSection
   };
 
   const activeTab = getActiveTab();
