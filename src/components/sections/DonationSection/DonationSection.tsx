@@ -43,7 +43,7 @@ import { SpinnerIcon } from "../../../icons/SpinnerIcon";
 
 
 interface IDonationSection {
-    donateSectionRef: React.RefObject<HTMLDivElement | null>
+    donateSectionRef?: React.RefObject<HTMLDivElement | null>
 }
 
 export const DonationSection = (props: IDonationSection) =>{

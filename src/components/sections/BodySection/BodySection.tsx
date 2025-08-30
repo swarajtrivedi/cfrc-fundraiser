@@ -106,7 +106,9 @@ export const BodySection = (props: IBodySection) =>{
                       >
                         Register
                       </CTAButton>
-                      <CTAButton onClick={scrollToDonateSection}>
+                      <CTAButton onClick={(e)=> {
+                        window.location.href = "/donate";
+                      }}>
                         Donate
                       </CTAButton>
                     </ButtonRow>

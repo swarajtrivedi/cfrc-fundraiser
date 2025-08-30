@@ -11,6 +11,7 @@ import {
   NavItem,
   DonateButton
 } from "./HeaderSection.styles"
+import { useLocation } from "react-router-dom";
 
 interface IHeaderSection {
   scrollToDonateSection: ()=>void,
@@ -22,7 +23,18 @@ export const HeaderSection = (props: IHeaderSection) =>{
     scrollToDonateSection,
     scrollToFooterSection
   } = props;
-  const [activeTab, setActiveTab] = useState("Home");
+
+  const location = useLocation();
+
+  const getActiveTab = () => {
+    if (location.pathname === "/learn-more") return "Learn More";
+    if (location.pathname === "/") return "Home";
+    if (location.pathname === "/donate") return "Donate";
+    return "Contact Us"; // fallback for scrollToFooterSection
+  };
+
+  const activeTab = getActiveTab();
+  
   return (
       <> 
           <Header>
@@ -31,19 +43,22 @@ export const HeaderSection = (props: IHeaderSection) =>{
                 <Title>Your help can change lives</Title>
                 <SubTitle>CFRC - Cure For A Rare Cancer</SubTitle>
               </HeaderTextContainer>
-              <DonateButton onClick={scrollToDonateSection}>
+              <DonateButton onClick={(e) =>{
+                window.location.href = "/donate";
+              }}>
                 Donate
               </DonateButton>
           </Header>
           <Nav>
-            {["Home", "Donate", "Contact Us"].map((tab) => (
+            {["Home", "Donate", "Learn More", "Contact Us"].map((tab) => (
               <NavItem
                 key={tab}
                 active={tab === activeTab}
                 onClick={(e) => {
-                  setActiveTab(tab)
-                  if(tab == "Donate") scrollToDonateSection();
                   if(tab == "Contact Us") scrollToFooterSection();
+                  else if (tab === "Learn More") window.location.href = "/learn-more";
+                  else if (tab === "Home") window.location.href = "/";
+                  else if (tab === "Donate") window.location.href = "/donate";
                 }}
               >
                 {tab}
