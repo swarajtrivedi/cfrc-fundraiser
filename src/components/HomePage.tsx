@@ -15,6 +15,7 @@ const HomePage = (props: IHomePage) =>
     return (
       <>
         <BodySection scrollToDonateSection={scrollToDonateSection} />
+        <DonationSection donateSectionRef={donateSectionRef}/>
       </>
     );
 
