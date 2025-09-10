@@ -43,9 +43,7 @@ export const HeaderSection = (props: IHeaderSection) =>{
                 <Title>Your help can change lives</Title>
                 <SubTitle>CFRC - Cure For A Rare Cancer</SubTitle>
               </HeaderTextContainer>
-              <DonateButton onClick={(e) =>{
-                window.location.href = "/donate";
-              }}>
+              <DonateButton onClick={() => window.open("https://givebutter.com/CFRC")}>
                 Donate
               </DonateButton>
           </Header>

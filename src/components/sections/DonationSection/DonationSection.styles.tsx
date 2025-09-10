@@ -262,6 +262,39 @@ const CloseButton = styled.button`
   border-radius: 6px;
   cursor: pointer;
 `;
+const DonationTable = styled.table`
+  width: 100%;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  border-collapse: collapse;
+  font-size: 1.6rem;
+  color: #000;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  overflow: hidden;
+
+  thead {
+    background: #f6f8fa;
+    font-weight: bolder;
+    text-align: left;
+  }
+
+  th,
+  td {
+    padding: 0.6rem;
+    vertical-align: top;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+    font-size: 16px;
+  }
+
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  
+`;
 
 export {
     DonateSection,
@@ -291,5 +324,6 @@ export {
     ModalContent,
     QRImage,
     CloseButton,
+    DonationTable
 
 }
