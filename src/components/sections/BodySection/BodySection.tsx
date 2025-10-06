@@ -106,9 +106,7 @@ export const BodySection = (props: IBodySection) =>{
                       >
                         Register
                       </CTAButton>
-                      <CTAButton onClick={(e)=> {
-                        window.location.href = "/donate";
-                      }}>
+                      <CTAButton onClick={() => window.open("https://givebutter.com/CFRC")}>
                         Donate
                       </CTAButton>
                     </ButtonRow>
